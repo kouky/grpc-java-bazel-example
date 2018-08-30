@@ -1,8 +1,6 @@
-# gRPC Java Bazel Example
+# gRPC Java Bazel Examples
 
-A working [gRPC](https://grpc.io) example using the [Bazel](https://bazel.build) build system. It's meant as a supplement
-to the official [gRPC Java Quick Start Guide](https://grpc.io/docs/quickstart/java.html).
-
+This repository includes examples of gRPC Java applications built with [Bazel](https://bazel.build). It's meant as a supplement to the official gRPC Java [quick start guide](https://grpc.io/docs/quickstart/java.html) and [tutorial](https://grpc.io/docs/tutorials/basic/java.html).
 
 ## Before you begin
 
@@ -16,7 +14,7 @@ git clone git@github.com:kouky/grpc-java-bazel-example.git
 cd grpc-java-bazel-example
 ```
 
-## Run gRPC Application 
+## Run Hello World gRPC Application
 
 Compile all the bazel targets
 
@@ -27,13 +25,13 @@ bazel build //...
 Run the server
 
 ```
-bazel-bin/src/java/org/kouky/helloworld/server/helloworld_server
+bazel-bin/src/main/java/org/kouky/helloworld/server/helloworld_server
 ```
 
 In another terminal, run the client
 
 ```
-bazel-bin/src/java/org/kouky/helloworld/client/helloworld_client
+bazel-bin/src/main/java/org/kouky/helloworld/client/helloworld_client
 ```
 
 You should see the following output as the client talks to the server.
@@ -45,6 +43,47 @@ Aug 26, 2018 9:39:49 PM org.kouky.helloworld.client.HelloWorldClient greet
 INFO: Greeting: Hello world
 Aug 26, 2018 9:39:49 PM org.kouky.helloworld.client.HelloWorldClient greet
 INFO: Greeting: Hello again world
+```
+
+## Run RouteGuide gRPC Application 
+
+Compile all the bazel targets
+
+```
+bazel build //...
+```
+
+Run the server
+
+```
+bazel-bin/src/main/java/org/kouky/routeguide/server/routeguide_server
+```
+
+In another terminal, run the client
+
+```
+bazel-bin/src/main/java/org/kouky/routeguide/client/routeguide_client
+```
+
+You should see the following output as the client talks to the server.
+
+```
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: *** GetFeature: lat=409,146,138 lon=-746,188,906
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: Found feature called "Berkshire Valley Management Area Trail, Jefferson, NJ, USA" at 40.915, -74.619
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: *** GetFeature: lat=0 lon=0
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: Found no feature at 0, 0
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: *** ListFeatures: lowLat=400,000,000 lowLon=-750,000,000 hiLat=420,000,000 hiLon=-730,000,000
+Aug 30, 2018 9:37:52 PM org.kouky.routeguide.client.RouteGuideClient info
+INFO: Result #1: name: "Patriots Path, Mendham, NJ 07945, USA"
+location {
+  latitude: 407838351
+  longitude: -746143763
+}
 ```
 
 ## 3rdParty Dependencies

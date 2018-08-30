@@ -16,7 +16,8 @@ dependencies:
       lang: java
 
   com.google.protobuf:
-    protobuf-java:
+    protobuf:
+      modules: ["java", "java-util"]
       version: "3.6.1"
       lang: java
 
