@@ -1,7 +1,7 @@
 java_binary(
-    name = "helloworld_client",
+    name = "helloworld_server",
     srcs = glob(["*.java"]),
-    main_class = "org.kouky.helloworld.client.HelloWorldClient",
+    main_class = "org.kouky.helloworld.server.HelloWorldServer",
     visibility = [
         "//visibility:public",
     ],
@@ -9,7 +9,7 @@ java_binary(
         "//3rdparty/jvm/io/grpc:grpc_stub",
         "//3rdparty/jvm/io/grpc:grpc_netty",
         "//3rdparty/jvm/io/grpc:grpc_protobuf",
-        "//src/proto:helloworld_java_proto",
-        "//src/proto:helloworld_java_grpc",
+        "//src/main/proto:helloworld_java_proto",
+        "//src/main/proto:helloworld_java_grpc",
     ],
 )
